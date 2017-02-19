@@ -17,9 +17,6 @@ The output of the script is supposed to look like:
         2.4750    0.0000    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
       1  2  2  0  0  0  0
     M  END
-    >  <WPM>
-    WPM00001
-    
     >  <http://www.wikipathways.org/index.php/Pathway:WP15>
     Selenium Pathway (Homo sapiens)
     
