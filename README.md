@@ -9,7 +9,7 @@ The first version is available from Figshare:
 
 The output of the script is supposed to look like:
 
-    Q23905964
+    http://www.wikidata.org/entity/Q11694846
       createSDFile.groovy
     
       2  1  0  0  0  0            999 V2000
@@ -31,6 +31,9 @@ The output of the script is supposed to look like:
     
     >  <Label1>
     Oxygen
+    
+    >  <IRI0>
+    http://identifiers.org/chebi/CHEBI:16852
     
     $$$$
  
