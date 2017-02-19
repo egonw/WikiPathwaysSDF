@@ -9,8 +9,8 @@ The first version is available from Figshare:
 
 The output of the script is supposed to look like:
 
-    WPM00001
-     addWPLinks.groovy
+    Q23905964
+      createSDFile.groovy
     
       2  1  0  0  0  0            999 V2000
         1.6500    0.0000    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
@@ -31,9 +31,6 @@ The output of the script is supposed to look like:
     
     >  <Label1>
     Oxygen
-    
-    >  <http://semanticscience.org/resource/CHEMINF_000408>
-    HMDB01377
     
     $$$$
  
