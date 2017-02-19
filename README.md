@@ -5,6 +5,9 @@ The first version is available from Figshare:
 
 * Willighagen, Egon (2015): WikiPathways SD file (v.1). figshare. https://doi.org/10.6084/m9.figshare.1335751.v1 Retrieved: 16 22, Feb 19, 2017 (GMT)
 
+## Makefile
+
+
 ## Excepted output
 
 The output of the script is supposed to look like:
