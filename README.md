@@ -7,10 +7,18 @@ The first version is available from Figshare:
 
 ## Makefile
 
+Get the input data:
+
     curl -H "Accept: text/tab-separated-values" --data-urlencode query@smiles.rq -G https://query.wikidata.org/bigdata/namespace/wdq/sparql -o wikidata.tsv
     curl -H "Accept: text/tab-separated-values" --data-urlencode query@wikipathways.rq -G http://sparql.wikipathways.org/ -o wikipathways.tsv
     curl -H "Accept: text/tab-separated-values" --data-urlencode query@pathways.rq -G http://sparql.wikipathways.org/ -o pathways.tsv
     curl -H "Accept: text/tab-separated-values" --data-urlencode query@labels.rq -G http://sparql.wikipathways.org/ -o labels.tsv
+
+Create the SD file:
+
+    wget https://github.com/cdk/cdk/releases/download/cdk-1.5.14/cdk-1.5.14.jar
+    export CLASSPATH=cdk-1.5.14.jar
+    groovy createSDFile.groovy
 
 ## Excepted output
 
