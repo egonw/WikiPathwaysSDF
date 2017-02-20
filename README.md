@@ -8,6 +8,9 @@ The first version is available from Figshare:
 ## Makefile
 
     curl -H "Accept: text/csv" --data-urlencode query@smiles.rq -G https://query.wikidata.org/bigdata/namespace/wdq/sparql -o wikidata.tsv
+    curl -H "Accept: text/csv" --data-urlencode query@wikipathways.rq -G http://sparql.wikipathways.org/ -o wikipathways.tsv
+    curl -H "Accept: text/csv" --data-urlencode query@pathways.rq -G http://sparql.wikipathways.org/ -o pathways.tsv
+    curl -H "Accept: text/csv" --data-urlencode query@labels.rq -G http://sparql.wikipathways.org/ -o labels.tsv
 
 ## Excepted output
 

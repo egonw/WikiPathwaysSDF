@@ -1,0 +1,4 @@
+SELECT DISTINCT ?wikidata WHERE {
+  ?metabolite a wp:Metabolite ;
+    wp:bdbWikidata ?wikidata .
+} ORDER BY ASC(?wikidata) LIMIT 5

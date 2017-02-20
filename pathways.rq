@@ -1,0 +1,6 @@
+SELECT DISTINCT ?wikidata ?pathwayRes WHERE {
+  ?metabolite a wp:Metabolite ;
+    dcterms:isPartOf ?pathwayRes .
+  ?pathwayRes a wp:Pathway .
+  ?metabolite wp:bdbWikidata ?wikidata .
+} ORDER BY ASC(?wikidata) LIMIT 5
