@@ -13,6 +13,7 @@ Get the input data:
     curl -H "Accept: text/tab-separated-values" --data-urlencode query@wikipathways.rq -G http://sparql.wikipathways.org/ -o wikipathways.tsv
     curl -H "Accept: text/tab-separated-values" --data-urlencode query@pathways.rq -G http://sparql.wikipathways.org/ -o pathways.tsv
     curl -H "Accept: text/tab-separated-values" --data-urlencode query@labels.rq -G http://sparql.wikipathways.org/ -o labels.tsv
+    curl -H "Accept: text/tab-separated-values" --data-urlencode query@iris.rq -G http://sparql.wikipathways.org/ -o iris.tsv
 
 Create the SD file:
 

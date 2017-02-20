@@ -51,6 +51,22 @@ labelsFile.eachLine { line,number ->
   labelsList.add(title)
 }
 
+// read WikiPathways metabolite IRIs
+iris = new HashMap()
+irisFile = new File("iris.tsv")
+irisFile.eachLine { line,number ->
+  if (number == 1) return
+  def (compound, iri) = line.split(/\t/)
+  compound = compound.replace("\"","")
+  iri      = iri.replace("\"","")
+  irisList = iris.get("" + compound)
+  if (irisList == null) {
+    irisList = new ArrayList()
+    iris["$compound"] = irisList
+  }
+  irisList.add(iri)
+}
+
 // read WikiPathways metabolites with Wikidata IDs
 // for each:
 //   WP metabolite, create an SD file entry
@@ -79,6 +95,14 @@ wpMetabolitesFile.eachLine { line,number ->
         for (label in labelList) {
           mol.setProperty("Label" + labelCounter, label)
           labelCounter++
+        }
+      }
+      irisList = iris.get("" + compound)
+      if (irisList != null) {
+        iriCounter = 0
+        for (iri in irisList) {
+          mol.setProperty("IRI" + iriCounter, iri)
+          iriCounter++
         }
       }
       writer.write(mol)
