@@ -4,4 +4,4 @@ SELECT DISTINCT (substr(str(?wikidataRes),32) AS ?wikidata) (str(?labelStr) AS ?
     dcterms:isPartOf ?pathwayRes .
   ?pathwayRes a wp:Pathway .
   ?metabolite wp:bdbWikidata ?wikidataRes .
-} ORDER BY ASC(?wikidata) LIMIT 5
+} ORDER BY ASC(?wikidata)

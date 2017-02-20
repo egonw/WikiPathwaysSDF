@@ -1,4 +1,4 @@
 SELECT DISTINCT (substr(str(?wikidataRes),32) AS ?wikidata) WHERE {
   ?metabolite a wp:Metabolite ;
     wp:bdbWikidata ?wikidataRes .
-} ORDER BY ASC(?wikidata) LIMIT 5
+} ORDER BY ASC(?wikidata)
