@@ -35,6 +35,22 @@ pathwaysFile.eachLine { line,number ->
   pathwayList["$pathwayIRI"] = title + " (" + organism + ")"
 }
 
+// read WikiPathways metabolite labels
+labels = new HashMap()
+labelsFile = new File("labels.tsv")
+labelsFile.eachLine { line,number ->
+  if (number == 1) return
+  def (compound, title) = line.split(/\t/)
+  compound   = compound.replace("\"","")
+  title      = title.replace("\"","")
+  labelsList = labels.get("" + compound)
+  if (labelsList == null) {
+    labelsList = new ArrayList()
+    labels["$compound"] = labelsList
+  }
+  labelsList.add(title)
+}
+
 // read WikiPathways metabolites with Wikidata IDs
 // for each:
 //   WP metabolite, create an SD file entry
@@ -55,6 +71,14 @@ wpMetabolitesFile.eachLine { line,number ->
       if (pathwayList != null) {
         for (iri in pathwayList.keySet()) {
           mol.setProperty(iri, pathwayList.get(iri))
+        }
+      }
+      labelList = labels.get("" + compound)
+      if (labelList != null) {
+        labelCounter = 0
+        for (label in labelList) {
+          mol.setProperty("Label" + labelCounter, label)
+          labelCounter++
         }
       }
       writer.write(mol)
