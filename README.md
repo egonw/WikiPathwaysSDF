@@ -7,6 +7,7 @@ The first version is available from Figshare:
 
 ## Makefile
 
+    curl -H "Accept: text/csv" --data-urlencode query@smiles.rq -G https://query.wikidata.org/bigdata/namespace/wdq/sparql -o wikidata.tsv
 
 ## Excepted output
 

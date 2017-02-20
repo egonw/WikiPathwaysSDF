@@ -1,0 +1,5 @@
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?compound ?inchikey ?id WHERE {
+  ?compound wdt:P2017 ?id ;
+            wdt:P235 ?inchikey .
+} LIMIT 5
