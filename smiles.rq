@@ -1,4 +1,6 @@
-SELECT (substr(str(?compound),32) AS ?wikidata) ?inchikey ?smiles WHERE {
-  ?compound wdt:P2017 ?smiles ;
-            wdt:P235 ?inchikey .
-} LIMIT 5
+SELECT (substr(str(?compound),32) AS ?wikidata) ?inchikey ?smiles ?chiral WHERE {
+  ?compound wdt:P235  ?inchikey .
+  OPTIONAL {?compound wdt:P233  ?smiles }
+  OPTIONAL {?compound wdt:P2017 ?chiral }
+  FILTER (BOUND(?smiles) || BOUND(?chiral))
+}
