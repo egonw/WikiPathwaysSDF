@@ -1,7 +1,7 @@
-SELECT DISTINCT ?wikidata (str(?labelStr) AS ?label) WHERE {
+SELECT DISTINCT (substr(str(?wikidataRes),32) AS ?wikidata) (str(?labelStr) AS ?label) WHERE {
   ?metabolite a wp:Metabolite ;
     rdfs:label ?labelStr ;
     dcterms:isPartOf ?pathwayRes .
   ?pathwayRes a wp:Pathway .
-  ?metabolite wp:bdbWikidata ?wikidata .
+  ?metabolite wp:bdbWikidata ?wikidataRes .
 } ORDER BY ASC(?wikidata) LIMIT 5

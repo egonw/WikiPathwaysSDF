@@ -1,5 +1,4 @@
-PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-SELECT ?compound ?inchikey ?id WHERE {
-  ?compound wdt:P2017 ?id ;
+SELECT (substr(str(?compound),32) AS ?wikidata) ?inchikey ?smiles WHERE {
+  ?compound wdt:P2017 ?smiles ;
             wdt:P235 ?inchikey .
 } LIMIT 5

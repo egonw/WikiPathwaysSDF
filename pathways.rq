@@ -1,6 +1,6 @@
-SELECT DISTINCT ?wikidata ?pathwayRes WHERE {
+SELECT DISTINCT (substr(str(?wikidataRes),32) AS ?wikidata) ?pathwayRes WHERE {
   ?metabolite a wp:Metabolite ;
     dcterms:isPartOf ?pathwayRes .
   ?pathwayRes a wp:Pathway .
-  ?metabolite wp:bdbWikidata ?wikidata .
+  ?metabolite wp:bdbWikidata ?wikidataRes .
 } ORDER BY ASC(?wikidata) LIMIT 5
