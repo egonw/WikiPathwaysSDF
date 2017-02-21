@@ -1,11 +1,15 @@
 PREFIX dc:      <http://purl.org/dc/elements/1.1/>
 PREFIX wp:     <http://vocabularies.wikipathways.org/wp#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
 
-SELECT DISTINCT (substr(str(?wikidataRes),32) AS ?wikidata) ?pathwayRes ?title ?organism WHERE {
+SELECT DISTINCT (substr(str(?wikidataRes),32) AS ?wikidata) ?pathwayRes
+                 (str(?titleLit) AS ?title)
+                 (str(?organismLit) AS ?organism)
+WHERE {
   ?metabolite a wp:Metabolite ;
     dcterms:isPartOf ?pathwayRes .
-  ?pathwayRes dc:title ?title ;
-    wp:organismName ?organism ;
+  ?pathwayRes dc:title ?titleLit ;
+    wp:organismName ?organismLit ;
     a wp:Pathway .
   ?metabolite wp:bdbWikidata ?wikidataRes .
 } ORDER BY ASC(?wikidata)

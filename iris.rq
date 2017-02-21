@@ -1,3 +1,5 @@
+PREFIX wp:     <http://vocabularies.wikipathways.org/wp#>
+
 SELECT DISTINCT (substr(str(?wikidataRes),32) AS ?wikidata) ?metabolite WHERE {
   ?metabolite a wp:Metabolite ;
               wp:bdbWikidata ?wikidataRes .

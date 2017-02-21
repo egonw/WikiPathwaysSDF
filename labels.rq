@@ -1,3 +1,6 @@
+PREFIX wp:     <http://vocabularies.wikipathways.org/wp#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
 SELECT DISTINCT (substr(str(?wikidataRes),32) AS ?wikidata) (str(?labelStr) AS ?label) WHERE {
   ?metabolite a wp:Metabolite ;
     rdfs:label ?labelStr ;
