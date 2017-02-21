@@ -11,10 +11,18 @@ inchiMap = new HashMap()
 smilesFile = new File("wikidata.tsv")
 smilesFile.eachLine { line,number ->
   if (number == 1) return
-  def (compound, inchikey, smiles) = line.split(/\t/)
-  compound = compound.replace("\"","")
-  smilesMap["$compound"] = smiles
-  inchiMap["$compound"] = inchikey
+  def fields = line.split(/\t/)
+  if (fields.length > 3) {
+    def (compound, inchikey, smiles, chiral) = fields
+    compound = compound.replace("\"","")
+    smilesMap["$compound"] = chiral
+    inchiMap["$compound"] = inchikey
+  } else {
+    def (compound, inchikey, smiles) = fields
+    compound = compound.replace("\"","")
+    smilesMap["$compound"] = smiles
+    inchiMap["$compound"] = inchikey
+  }
 }
 
 // read WikiPathways metabolite pathways
