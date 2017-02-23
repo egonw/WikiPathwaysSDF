@@ -4,6 +4,7 @@ import org.openscience.cdk.io.SDFWriter
 import org.openscience.cdk.smiles.SmilesParser
 import org.openscience.cdk.exception.InvalidSmilesException
 import org.openscience.cdk.silent.SilentChemObjectBuilder
+import org.openscience.cdk.layout.StructureDiagramGenerator
 
 // read Wikidata <> SMILES
 smilesMap = new HashMap()
@@ -81,6 +82,7 @@ irisFile.eachLine { line,number ->
 
 writer = new SDFWriter(new File("wikipathways.sdf").newOutputStream())
 
+sdg = new StructureDiagramGenerator();
 smiParser = new SmilesParser(SilentChemObjectBuilder.instance)
 wpMetabolitesFile = new File("wikipathways.tsv")
 wpMetabolitesFile.eachLine { line,number ->
@@ -90,6 +92,7 @@ wpMetabolitesFile.eachLine { line,number ->
     smiles = smilesMap["$compound"]
     try {
       mol = smiParser.parseSmiles(smiles)
+      sdg.generateCoordinates(mol);
       mol.setProperty("cdk:Title", "http://www.wikidata.org/entity/" + compound)
       pathwayList = pathways.get("" + compound)
       if (pathwayList != null) {
