@@ -33,7 +33,7 @@ pathwaysFile.eachLine { line,number ->
   if (number == 1) return
   def (compound, pathwayIRI, title, organism) = line.split(/\t/)
   compound   = compound.replace("\"","")
-  pathwayIRI = pathwayIRI.replace("\"","")
+  pathwayIRI = pathwayIRI.replace("\"","").replace("<","").replace(">","")
   title      = title.replace("\"","")
   organism   = organism.replace("\"","")
   pathwayList = pathways.get("" + compound)
