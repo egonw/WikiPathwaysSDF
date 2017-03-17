@@ -1,0 +1,21 @@
+prefix void: <http://rdfs.org/ns/void#>
+prefix dctypes: <http://purl.org/dc/dcmitype/>
+prefix dcat: <http://www.w3.org/ns/dcat#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix dct: <http://purl.org/dc/terms/>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix pav: <http://purl.org/pav/>
+
+<https://raw.githubusercontent.com/egonw/WikiPathwaysSDF/void.ttl#summary> a dctypes:Dataset ;
+  dct:title "WikiPathways SD file"@en ;
+  dct:description "SD file with chemical structures of metabolites in WikiPathways."@en ;
+  dct:publisher <https://www.wikidata.org/entity/Q20895241> .
+
+<https://raw.githubusercontent.com/egonw/WikiPathwaysSDF/void.ttl#version2> a dctypes:Dataset ;
+  dct:isVersionOf <https://raw.githubusercontent.com/egonw/WikiPathwaysSDF/void.ttl#summary> a dctypes:Dataset ;> ;
+  pav:version "v.2" ;
+  dct:title "WikiPathways SD file (v.2)"@en ;
+  dct:description "Version 2 of the WikiPathways SD file."@en ;
+  dct:publisher <https://www.wikidata.org/entity/Q20895241> ;
+  dct:creator [ foaf:page <https://github.com/egonw/WikiPathwaysSDF/blob/master/createSDFile.groovy> ] .
