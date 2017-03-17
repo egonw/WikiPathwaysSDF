@@ -13,9 +13,18 @@ prefix pav: <http://purl.org/pav/>
   dct:publisher <https://www.wikidata.org/entity/Q20895241> .
 
 <https://raw.githubusercontent.com/egonw/WikiPathwaysSDF/void.ttl#version2> a dctypes:Dataset ;
-  dct:isVersionOf <https://raw.githubusercontent.com/egonw/WikiPathwaysSDF/void.ttl#summary> a dctypes:Dataset ;> ;
+  dct:isVersionOf <https://raw.githubusercontent.com/egonw/WikiPathwaysSDF/void.ttl#summary> ;
   pav:version "v.2" ;
   dct:title "WikiPathways SD file (v.2)"@en ;
   dct:description "Version 2 of the WikiPathways SD file."@en ;
-  dct:publisher <https://www.wikidata.org/entity/Q20895241> ;
-  dct:creator [ foaf:page <https://github.com/egonw/WikiPathwaysSDF/blob/master/createSDFile.groovy> ] .
+  dct:creator <https://www.wikidata.org/entity/Q20895241> ;
+  dct:publisher <https://www.wikidata.org/entity/Q17013516> .
+
+<https://raw.githubusercontent.com/egonw/WikiPathwaysSDF/void.ttl#version2distrib> a dcat:Distribution ;
+  dct:format "chemical/x-mdl-sdfile" ;
+  dcat:downloadURL <https://ndownloader.figshare.com/files/7817257> ;
+  dct:license <http://www.ebi.ac.uk/swo/license/SWO_1000049> ;
+  dct:title "WikiPathways SD file (v.2)"@en ;
+  dct:description "Version 2 of the WikiPathways SD file."@en ;
+  dct:creator <https://www.wikidata.org/entity/Q20895241> ;
+  dct:publisher <https://www.wikidata.org/entity/Q17013516> .
