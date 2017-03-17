@@ -6,6 +6,7 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix dct: <http://purl.org/dc/terms/>
 prefix foaf: <http://xmlns.com/foaf/0.1/>
 prefix pav: <http://purl.org/pav/>
+prefix prov: <http://www.w3.org/ns/prov#>
 
 <https://raw.githubusercontent.com/egonw/WikiPathwaysSDF/void.ttl#summary> a dctypes:Dataset ;
   dct:title "WikiPathways SD file"@en ;
@@ -18,7 +19,9 @@ prefix pav: <http://purl.org/pav/>
   dct:title "WikiPathways SD file (v.2)"@en ;
   dct:description "Version 2 of the WikiPathways SD file."@en ;
   dct:creator <https://www.wikidata.org/entity/Q20895241> ;
-  dct:publisher <https://www.wikidata.org/entity/Q17013516> .
+  dct:publisher <https://www.wikidata.org/entity/Q17013516> ;
+  dcat:distribution <https://raw.githubusercontent.com/egonw/WikiPathwaysSDF/void.ttl#version2distrib> ;
+  prov:wasDerivedFrom <https://www.wikidata.org/entity/Q2013>, <https://www.wikidata.org/entity/Q7999828> .
 
 <https://raw.githubusercontent.com/egonw/WikiPathwaysSDF/void.ttl#version2distrib> a dcat:Distribution ;
   dct:format "chemical/x-mdl-sdfile" ;
