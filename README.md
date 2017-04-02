@@ -29,9 +29,13 @@ Create the SD file:
     export CLASSPATH=cdk-1.5.14.jar
     groovy createSDFile.groovy
 
+If you want to create input for PubChem, use the --pubchem option:
+
+    groovy createSDFile.groovy --pubchem
+
 ## Excepted output
 
-The output of the script is supposed to look like:
+The output of the script is supposed to look like (for the regular output):
 
     http://www.wikidata.org/entity/Q11694846
       createSDFile.groovy
