@@ -96,8 +96,11 @@ wpMetabolitesFile.eachLine { line,number ->
       mol.setProperty("cdk:Title", "http://www.wikidata.org/entity/" + compound)
       pathwayList = pathways.get("" + compound)
       if (pathwayList != null) {
+        iriCounter = 0
         for (iri in pathwayList.keySet()) {
-          mol.setProperty(iri, pathwayList.get(iri))
+          mol.setProperty("URL" + iriCounter, iri)
+          mol.setProperty("URL" + iriCounter + "-TITLE", pathwayList.get(iri))
+          iriCounter++
         }
       }
       labelList = labels.get("" + compound)
