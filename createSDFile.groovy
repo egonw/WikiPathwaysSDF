@@ -1,3 +1,5 @@
+import groovy.util.CliBuilder
+
 import java.util.HashMap;
 
 import org.openscience.cdk.io.SDFWriter
@@ -5,6 +7,20 @@ import org.openscience.cdk.smiles.SmilesParser
 import org.openscience.cdk.exception.InvalidSmilesException
 import org.openscience.cdk.silent.SilentChemObjectBuilder
 import org.openscience.cdk.layout.StructureDiagramGenerator
+
+def cli = new CliBuilder(
+  usage:'groovy createSDFile.groovy [options]',
+  header:'Options:'
+)
+cli.h(longOpt:'help', 'print this messages')
+cli.p(longOpt:'pubchem', 'create a PubChem submission')
+
+def options = cli.parse(args)
+
+if (options.help) {
+  cli.usage()
+  System.exit(0)
+}
 
 // read Wikidata <> SMILES
 smilesMap = new HashMap()
@@ -93,13 +109,20 @@ wpMetabolitesFile.eachLine { line,number ->
     try {
       mol = smiParser.parseSmiles(smiles)
       sdg.generateCoordinates(mol);
-      mol.setProperty("cdk:Title", "http://www.wikidata.org/entity/" + compound)
+      if (options.pubchem) {
+        mol.setProperty("cdk:Title", compound)
+        mol.setProperty("PUBCHEM_EXT_DATASOURCE_REGID", compound)
+      } else {
+        mol.setProperty("cdk:Title", "http://www.wikidata.org/entity/" + compound)
+      }
       pathwayList = pathways.get("" + compound)
       if (pathwayList != null) {
         iriCounter = 0
         for (iri in pathwayList.keySet()) {
-          mol.setProperty("URL" + iriCounter, iri)
-          mol.setProperty("URL" + iriCounter + "-TITLE", pathwayList.get(iri))
+          if (!options.pubchem) {
+            mol.setProperty("URL" + iriCounter, iri)
+            mol.setProperty("URL" + iriCounter + "_TITLE", pathwayList.get(iri))
+          }
           iriCounter++
         }
       }
@@ -107,7 +130,9 @@ wpMetabolitesFile.eachLine { line,number ->
       if (labelList != null) {
         labelCounter = 0
         for (label in labelList) {
-          mol.setProperty("Label" + labelCounter, label)
+          if (!options.pubchem) {
+            mol.setProperty("Label" + labelCounter, label)
+          }
           labelCounter++
         }
       }
@@ -115,7 +140,10 @@ wpMetabolitesFile.eachLine { line,number ->
       if (irisList != null) {
         iriCounter = 0
         for (iri in irisList) {
-          mol.setProperty("IRI" + iriCounter, iri)
+          iri = iri.replace("<","").replace(">","")
+          if (!options.pubchem) {
+            mol.setProperty("IRI" + iriCounter, iri)
+          }
           iriCounter++
         }
       }
