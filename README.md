@@ -25,8 +25,7 @@ from the Jenkins server:
 
 Create the SD file:
 
-    wget https://github.com/cdk/cdk/releases/download/cdk-1.5.14/cdk-1.5.14.jar
-    export CLASSPATH=cdk-1.5.14.jar
+    export CLASSPATH=cdk-2.0.jar
     groovy createSDFile.groovy
 
 If you want to create input for PubChem, use the --pubchem option:
